@@ -1,0 +1,7 @@
+# --- Example file ---
+#this  is a comment
+ url = "http://lotto-dev.lnk.co.ua/api/v1/token"
+ output = "token.json"
+
+ url = "http://lotto-dev.lnk.co.ua/api/v1/settings"
+ output = "settings.json"
