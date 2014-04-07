@@ -10,7 +10,7 @@ accept="Accept: application/json"
 API='http://lotto-dev.lnk.co.ua/api/v1/'
 
 printf "\nLogin user\n%suser/login\n" "$API"
-login_string=$(curl -s -H "$accept" -H "$contype"  -c cookie_storage -X POST --data @login {$API}user/login) 
+login_string=$(curl -s -H "$accept" -H "$contype"  -c cookie_storage -X POST -d @login {$API}user/login) 
 #-H "$token"
 echo $login_string
 sessid=$(expr "$login_string" : '.*"sessid":"\([^"]*\)"')
@@ -32,7 +32,7 @@ settings_string=$(curl -s -I -H "$accept" -H "$contype" -H "$token" -b cookie_st
 echo "$settings_string"
 
 printf "\nUpdate user \n%suser/%s\n" "$API" "$uid"
-update_user_string=$(curl -s -I -H "$accept" -H "$contype" -H "$token" -b cookie_storage -X PUT -d @userupdate {$API}user/{$uid} | grep -Fi http)
+update_user_string=$(curl -s -i -H "$accept" -H "$contype" -H "$token" -b cookie_storage -X PUT -d @userupdate {$API}user/{$uid} | grep -Fi http)
 echo "$update_user_string"
 
 printf "\nGet history user \n%suser/%s/tickets/\n" "$API" "$uid"
