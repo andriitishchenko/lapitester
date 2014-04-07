@@ -43,8 +43,8 @@ printf "\nGet 1 ticket user \n%sticket/497\n" "$API"
 user_1ticket_string=$(curl -s -I -H "$accept" -H "$contype" -H "$token" -b cookie_storage -X GET {$API}ticket/497 | grep -Fi http)
 echo "$user_1ticket_string"
 
-printf "\nGet user payment methosds \n%suser/%s/payment_methods\n" "$API" "$uid"
-user_payment_string=$(curl -s -I -H "$accept" -H "$contype" -H "$token" -b cookie_storage -X GET {$API}user/{$uid}/payment_methods | grep -Fi http)
-echo "$user_payment_string"
+#printf "\nGet user payment methosds \n%suser/%s/payment_methods\n" "$API" "$uid"
+#user_payment_string=$(curl -s -I -H "$accept" -H "$contype" -H "$token" -b cookie_storage -X GET {$API}user/{$uid}/payment_methods | grep -Fi http)
+#echo "$user_payment_string"
 
 echo "\n\n"
